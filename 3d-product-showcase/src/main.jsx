@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import App from './App.jsx'
 import Scene from './components/Scene.jsx'
+import ProductInfo from './components/ProductInfo.jsx'
+import Navbar from './components/Navbar.jsx'
 import './App.css'
 
 
@@ -12,8 +13,10 @@ root.render( <>
     <Scene />
   </Canvas>
 
+  <Navbar />
+
   <div className="app">
-    <App />
+    <ProductInfo />
   </div>
   
 </>)

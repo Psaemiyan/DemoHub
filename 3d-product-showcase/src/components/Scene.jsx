@@ -12,7 +12,12 @@ export default function Scene() {
     })
     return <>
 
-        <OrbitControls makeDefault />
+        <OrbitControls 
+            enableZoom={false} // Disable zoom
+            enablePan={false}  // Optional: Disable panning
+            maxPolarAngle={Math.PI / 2} // Optional: Restrict vertical rotation
+            minPolarAngle={0}
+        />
         <directionalLight castShadow position={ [ 1, 2, 3 ] } intensity={ 4.5 } shadow-normalBias = {0.04} />
         <ambientLight intensity={ 1.5 } />
 
