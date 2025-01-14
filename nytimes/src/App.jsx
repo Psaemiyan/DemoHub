@@ -12,11 +12,11 @@ export default function App() {
         <Header />
         {/* <NavBar /> */}
 
-      {/* <main>
+      <main>
         <HeroSection />
         <FeaturedStories />
-        <MiscArticles />
-      </main> */}
+        {/* <MiscArticles /> */}
+      </main>
 
       <Footer />
     </>

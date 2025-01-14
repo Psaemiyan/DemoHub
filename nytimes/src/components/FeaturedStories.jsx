@@ -1,9 +1,14 @@
 
 export default function FeaturedStories() {
   const stories = [
-    { id: 1, title: "Story 1", description: "Brief description of story 1", image: "story1.jpg" },
-    { id: 2, title: "Story 2", description: "Brief description of story 2", image: "story2.jpg" },
-    { id: 3, title: "Story 3", description: "Brief description of story 3", image: "story3.jpg" },
+    { id: 1, title: "Fires ramp up difficulty of hosting 2028 summer olympics in LA", 
+      description: "5 minute read", 
+      image: "story1.jpg" },
+
+    { id: 2, title: "Maps: Tracking the Los Angeles Wildfires", 
+      description: "2 minute read", 
+      image: "story2.jpg" }
+    
   ];
 
   return (

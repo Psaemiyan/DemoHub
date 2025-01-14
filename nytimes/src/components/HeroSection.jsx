@@ -3,8 +3,8 @@ export default function HeroSection()
     return <>
         <section className="hero">
         <article>
-            <h2>Trump Supporters Go All In for Pete Hegseth With Money and Coordination</h2>
-            <p>At Least 2 Killed; Tens of Thousands Under Evacuation Orders.</p>
+            <h2>L.A. Braces for ‘Explosive Fire Growth’ From Dangerous Winds</h2>
+            <p>The heavy gusts predicted for later Monday threaten the progress that firefighters have made against the blazes that have ravaged Los Angeles.</p>
             <div className="main-news-img">
                 <img src='./images/image-1.webp' />
             </div>
@@ -13,9 +13,9 @@ export default function HeroSection()
         </article>
         <aside>
             <ul>
-            <li>36 Hours in Antwerp, Belgium</li>
-            <li>How American Sign Language Can Help You Be a Better Communicator</li>
-            <li>Book Review: Mothers and Sons by Adam Haslett</li>
+            <li>Cook With Warmth and Hospitality. Cook With Vegetables.</li>
+            <li>Metropolitan Diary: ‘She Was Often the Only Bright Spot in My Otherwise Grim Days’</li>
+            <li>‘Babygirl’ Is Starting Conversations About Sex, Kink and Desire</li>
             </ul>
         </aside>
         </section>
