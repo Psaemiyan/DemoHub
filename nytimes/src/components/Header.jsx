@@ -37,13 +37,15 @@ export default function Header() {
         </div>
       </div>
    
-      <div className="date">
-        <p>Tuesday January 14, 2025</p>
-        <p>Today's Paper</p>
-      </div>
+      <div className="top-line-2">
+        <div className="date">
+          <p>Tuesday January 14, 2025</p>
+          <p>Today's Paper</p>
+        </div>
 
-      <div className="logo">
-        <h1>The New York Times</h1>
+        <div className="logo">
+          <h1>The New York Times</h1>
+        </div>
       </div>
 
     </header>

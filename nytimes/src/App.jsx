@@ -10,11 +10,11 @@ export default function App() {
   return (
     <>
         <Header />
-        {/* <NavBar /> */}
+        <NavBar />
 
       <main>
         <HeroSection />
-        <FeaturedStories />
+        {/* <FeaturedStories /> */}
         {/* <MiscArticles /> */}
       </main>
 

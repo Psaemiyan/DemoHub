@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <nav className="main-nav">
-      <ul>
+      <ul className="nav-list">
         {navItems.map((item, index) => (
           <li key={index}>{item}</li>
         ))}

@@ -9,7 +9,7 @@ h1 {
   font-family: 'Chomsky', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 400;
 }  
   
@@ -18,25 +18,29 @@ body {
     font-family: nyt-franklin, helvetica, arial, sans-serif;
     margin: 0;
     padding: 0 8rem;
-}
+  }
  
 button {
-    border-radius: 3px;
-    cursor: pointer;
-    transition: 0.6s;
-    white-space: nowrap;
-    vertical-align: middle;
-    color: rgb(255, 255, 255);
-    background-color: rgb(86, 123, 149);
-    border: 1px solid rgb(50, 104, 145);
-    font-size: 11px;
-    line-height: 11px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 8px 12px;
-    margin-right: 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.6s;
+  white-space: nowrap;
+  vertical-align: middle;
+  color: rgb(255, 255, 255);
+  background-color: rgb(86, 123, 149);
+  border: 1px solid rgb(50, 104, 145);
+  font-size: 11px;
+  line-height: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  margin-right: 7px;
 
+}
+
+button:hover{
+  background-color: rgb(50, 104, 145);
 }
 
 ul {
@@ -44,16 +48,6 @@ ul {
   padding: 0;
   list-style: none;
 }
-
-li {
-  display: inline;
-  margin-right: 15px;
-  font-family: nyt-franklin, helvetica, arial, sans-serif;
-  font-size: 0.6875rem;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
 
 footer {
   display: flex;
@@ -86,6 +80,16 @@ footer {
   flex-grow: 1;              /* Allow space for countries */
   text-align: center;        /* Center-align countries */
   margin-left: 280px;
+  cursor: pointer;
+}
+
+.countries-container li {
+  display: inline;
+  margin-right: 15px;
+  font-family: nyt-franklin, helvetica, arial, sans-serif;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* Buttons Container */
@@ -93,7 +97,13 @@ footer {
   margin-left: auto;         /* Push buttons to the right */
 }
 
+.top-line-2 {
+  display: flex;
+  line-height: 5px;
+}
+
 .date {
+  flex: 1;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.25rem;
@@ -102,6 +112,54 @@ footer {
 }
 
 .logo {
-  display: flex;
+  flex-grow: 1.1;
   justify-content: center;
+}
+
+.main-nav {
+  border-bottom: 1px solid #000;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0 250px;
+  margin: 0;
+}
+
+.main-nav li {
+  padding: 0 6px 0 0;
+  display: inline-block;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  width: auto;
+  cursor: pointer;
+}
+
+.hero {
+  display: flex;
+  gap: 1rem;
+}
+
+.main-news {
+  display: flex;
+  flex: 3;
+}
+
+.main-news p{ 
+  flex: 1;
+}
+.main-news-img img {
+  flex: 2;
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.side-col {
+  flex: 1;
 }
