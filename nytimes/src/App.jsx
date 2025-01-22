@@ -14,7 +14,7 @@ export default function App() {
 
       <main>
         <HeroSection />
-        {/* <FeaturedStories /> */}
+        <FeaturedStories />
         {/* <MiscArticles /> */}
       </main>
 
