@@ -132,7 +132,7 @@ function App() {
       </header>
 
       <div className="hero-banner">
-        <img src={movies[0].poster} alt="Hero Banner" />
+        <img src={'./header-img.jpg'} alt="Hero Banner" />
         <div className="hero-details">
           <h1>{movies[0].title}</h1>
           <p>{movies[0].description}</p>
