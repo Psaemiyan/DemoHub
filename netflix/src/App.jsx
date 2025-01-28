@@ -1,37 +1,53 @@
 import React, { useState } from 'react'
 import './App.css'
 
-// Placeholder movie data
+// Consolidated movie list
+const movies = [
+  { 
+    id: 1, 
+    title: 'Stranger Things', 
+    poster: './stranger-things.jpeg',
+    description: 'When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.'
+  },
+  { 
+    id: 2, 
+    title: 'The Witcher', 
+    poster: './witcher.jpeg',
+    description: 'Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.'
+  },
+  { 
+    id: 3, 
+    title: 'Wednesday', 
+    poster: './wednesday.jpeg',
+    description: 'Follows Wednesday Addams\' years as a student at Nevermore Academy, where she attempts to master her emerging psychic abilities.'
+  },
+  { 
+    id: 4, 
+    title: 'Black Mirror', 
+    poster: './black-mirror.jpeg',
+    description: 'An anthology series exploring a twisted, high-tech multiverse where humanity\'s greatest innovations and darkest instincts collide.'
+  },
+  { 
+    id: 5, 
+    title: 'Squid Game', 
+    poster: './squidgame.jpeg',
+    description: 'Hundreds of cash-strapped players accept a strange invitation to compete in children\'s games with a tempting prize, unaware of the deadly stakes.'
+  }
+]
+
+// Movie categories using the same movies
 const movieCategories = [
   {
     title: 'Trending Now',
-    movies: [
-      { id: 1, title: 'Stranger Things', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABVmiBxOqtqNhTmDSVhh8BPbxwkgTh4j_LJQxAJFmZt4aCMEqOjUQkOk9UqKHhTpRR_Uxb_7gqKA5Q7VfwFqyaDZLfqsXIwUz.jpg' },
-      { id: 2, title: 'The Witcher', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABdpQXzJqvn0jFGnzUHbfh0VfOKq4qMpXMdMOFdqrKMzqSGxfmzFCeKIh_Yz7XqtWkbOOPvwzCJOKqRjcqrqxqCsUyMsN.jpg' },
-      { id: 3, title: 'Wednesday', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABe2QmDpqbqKHVMIIKaQZCwmFjDKmKN_-LPQyqwRPqwNzqBxfJNbZxOZmkYXqEcUVuTVIGKPqI1XiNJqRzFnBSKqpqRRn.jpg' },
-      { id: 4, title: 'Black Mirror', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABfmXAQYz0LBQzFXcRIPuRc4-8ZM4ZKRoAgMkIhEyTmtTTOZqXh3ZOVVGsHXxqIqXUyqrpqhsRRqPJQzRqKnqzqSNqMsN.jpg' },
-      { id: 5, title: 'Squid Game', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABdyWyVk_YOqrMOmKXqwh6-YqKFqKqRrqzqSNqMsN.jpg' }
-    ]
+    movies: movies.slice(0, 3)
   },
   {
     title: 'Popular on Netflix',
-    movies: [
-      { id: 6, title: 'Money Heist', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABbRrqKpqrqzqSNqMsNqRrqzqSNqMsN.jpg' },
-      { id: 7, title: 'Narcos', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABdpQXzJqvn0jFGnzUHbfh0VfOKq4qMpXMdMOFdqrKMzqSGxfmzFCeKIh_Yz7XqtWkbOOPvwzCJOKqRjcqrqxqCsUyMsN.jpg' },
-      { id: 8, title: 'Dark', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABVmiBxOqtqNhTmDSVhh8BPbxwkgTh4j_LJQxAJFmZt4aCMEqOjUQkOk9UqKHhTpRR_Uxb_7gqKA5Q7VfwFqyaDZLfqsXIwUz.jpg' },
-      { id: 9, title: 'You', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABe2QmDpqbqKHVMIIKaQZCwmFjDKmKN_-LPQyqwRPqwNzqBxfJNbZxOZmkYXqEcUVuTVIGKPqI1XiNJqRzFnBSKqpqRRn.jpg' },
-      { id: 10, title: 'Ozark', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABfmXAQYz0LBQzFXcRIPuRc4-8ZM4ZKRoAgMkIhEyTmtTTOZqXh3ZOVVGsHXxqIqXUyqrpqhsRRqPJQzRqKnqzqSNqMsN.jpg' }
-    ]
+    movies: movies.slice(2, 5)
   },
   {
     title: 'Top 10 in the US Today',
-    movies: [
-      { id: 11, title: 'Top Gun', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABdyWyVk_YOqrMOmKXqwh6-YqKFqKqRrqzqSNqMsN.jpg' },
-      { id: 12, title: 'Inception', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABbRrqKpqrqzqSNqMsNqRrqzqSNqMsN.jpg' },
-      { id: 13, title: 'Breaking Bad', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABdpQXzJqvn0jFGnzUHbfh0VfOKq4qMpXMdMOFdqrKMzqSGxfmzFCeKIh_Yz7XqtWkbOOPvwzCJOKqRjcqrqxqCsUyMsN.jpg' },
-      { id: 14, title: 'Pulp Fiction', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABVmiBxOqtqNhTmDSVhh8BPbxwkgTh4j_LJQxAJFmZt4aCMEqOjUQkOk9UqKHhTpRR_Uxb_7gqKA5Q7VfwFqyaDZLfqsXIwUz.jpg' },
-      { id: 15, title: 'The Matrix', poster: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABe2QmDpqbqKHVMIIKaQZCwmFjDKmKN_-LPQyqwRPqwNzqBxfJNbZxOZmkYXqEcUVuTVIGKPqI1XiNJqRzFnBSKqpqRRn.jpg' }
-    ]
+    movies: movies.slice(0, 5)
   }
 ]
 
@@ -58,9 +74,9 @@ function App() {
 
   // Profiles selection
   const profiles = [
-    { id: 1, name: 'Pari', avatar: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/default.jpg' },
-    { id: 2, name: 'Kids', avatar: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/default.jpg' },
-    { id: 3, name: 'Guest', avatar: 'https://occ-0-1723-1722.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/default.jpg' }
+    { id: 1, name: 'Pari', avatar: './netflix-profile-pictures.webp' },
+    { id: 2, name: 'Kids', avatar: './netflix-profile-pictures-2.webp' },
+    { id: 3, name: 'Guest', avatar: './netflix-profile-pictures-3.webp' }
   ]
 
   if (!activeProfile) {
@@ -78,7 +94,17 @@ function App() {
               <p>{profile.name}</p>
             </div>
           ))}
+          <div 
+            className="profile add-profile"
+            onClick={() => alert('working on it!')}
+          >
+            <div className="add-profile-icon">+</div>
+            <p>Add Profile</p>
+          </div>
         </div>
+        <button className="manage-profiles">
+          Manage Profiles
+        </button>
       </div>
     )
   }
@@ -106,10 +132,10 @@ function App() {
       </header>
 
       <div className="hero-banner">
-        <img src="https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/6AYY37jfdO6dd7BVWqDf6LU43mM/AAAABdpQXzJqvn0jFGnzUHbfh0VfOKq4qMpXMdMOFdqrKMzqSGxfmzFCeKIh_Yz7XqtWkbOOPvwzCJOKqRjcqrqxqCsUyMsN.jpg" alt="Hero Banner" />
+        <img src={movies[0].poster} alt="Hero Banner" />
         <div className="hero-details">
-          <h1>Stranger Things</h1>
-          <p>When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.</p>
+          <h1>{movies[0].title}</h1>
+          <p>{movies[0].description}</p>
           <div className="hero-actions">
             <button className="play">▶ Play</button>
             <button className="more-info">ℹ More Info</button>
