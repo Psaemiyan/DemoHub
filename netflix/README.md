@@ -1,8 +1,15 @@
-# React + Vite
+# Netflix Clone - Styling Practice Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a React-based Netflix clone created as an exercise in front-end styling. The goal was to practice advanced CSS techniques and create an interactive, visually appealing web application inspired by Netflix's interface.
 
-Currently, two official plugins are available:
+## Features
+- Profile selection screen with hover effects
+- Responsive movie browsing interface
+- Dynamic header background on scroll
+- Consistent movie poster layout
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup and Installation
+1. Clone the repository
+2. Run `npm install`
+3. Start the development server with `npm run dev`
