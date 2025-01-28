@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 
 // Consolidated movie list
@@ -71,6 +71,19 @@ function MovieRow({ category }) {
 
 function App() {
   const [activeProfile, setActiveProfile] = useState(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY
+      setScrolled(offset > 100)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   // Profiles selection
   const profiles = [
@@ -111,7 +124,7 @@ function App() {
 
   return (
     <div className="netflix-home">
-      <header>
+      <header className={scrolled ? 'scrolled' : ''}>
         <div className="logo">NETFLIX</div>
         <nav>
           <a href="#" className="active">Home</a>
