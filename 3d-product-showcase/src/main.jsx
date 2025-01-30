@@ -9,14 +9,13 @@ import './App.css'
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render( <>
-  <Canvas>
-    <Scene />
-  </Canvas>
-
   <Navbar />
-
-  <div className="app">
-    <ProductInfo />
+  <div className="app-container">
+    <Canvas>
+      <Scene />
+    </Canvas>
+    <div className="app">
+      <ProductInfo />
+    </div>
   </div>
-  
 </>)

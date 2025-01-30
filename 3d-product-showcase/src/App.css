@@ -4,147 +4,303 @@ body, #root {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     text-align: center;
-    letter-spacing: 2.5px;
-    background: linear-gradient(135deg, #2b5876, #4e4376);
+    letter-spacing: 1.5px;
+    background: linear-gradient(135deg, #1a202c, #2d3748);
+    color: #e2e8f0;
+    perspective: 1000px;
+}
+
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom, 
+        transparent 0%, 
+        rgba(226, 232, 240, 0.05) 20%, 
+        rgba(226, 232, 240, 0.1) 50%, 
+        rgba(226, 232, 240, 0.05) 80%, 
+        transparent 100%
+    );
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.app-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: rgba(226, 232, 240, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    opacity: 0.5;
+    box-shadow: 0 0 15px 5px rgba(226, 232, 240, 0.05);
+    transition: all 0.3s ease;
+}
+
+.app-container:hover::after {
+    opacity: 0.7;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 0 25px 10px rgba(226, 232, 240, 0.1);
 }
 
 canvas {
     flex: 0 0 50vw;
-    background: transparent; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(26, 32, 44, 0.5); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+canvas:hover {
+    transform: scale(1.02) rotateY(5deg);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
 }
 
 .app {
     flex: 0 0 50vw;
-    padding: 20px;
+    padding: 40px;
     display: flex;
-    background: transparent;
+    background: rgba(26, 32, 44, 0.5);
+    backdrop-filter: blur(10px);
     justify-content: center;
     align-items: center;
+    transition: background 0.3s ease;
 }
 
 .product-title {
-    font-size: 2rem;
-    font-weight: 300;
-    margin-bottom: 40px;
-    color: #E2E8F0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #e2e8f0;
     text-transform: uppercase;
-
+    letter-spacing: 3px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease;
 }
 
 .product-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: #A0AEC0;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #a0aec0;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
 }
 
 .product-description {
     width: 500px;
     font-size: 1rem;
-    color: #CBD5E0;
+    color: #cbd5e0;
     margin: 30px 0;
-    line-height: 1.5;
+    line-height: 1.7;
     text-align: center;
-    letter-spacing: 0;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
-
 .product-price {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    margin: 50px 0;
-    color: #B0BEC5;
+    margin: 30px 0 20px;
+    color: #a0aec0;
 }
 
 .buy-now-btn {
-    padding: 10px 30px;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #fff;
-    background: #11385f;
-    border: none;
-    border-radius: 5px;
+    padding: 12px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #e2e8f0;
+    background-color: #2d3748;
+    border: 1px solid #4a5568;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-    box-shadow: 0 4px 15px rgba(0, 28, 141, 0.3); 
+    transition: 
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .buy-now-btn:hover {
-    background: #bfc0c1;
-    color: #11385f;
+    background-color: #4a5568;
+    transform: translateY(-3px);
 }
 
+.buy-now-btn:active {
+    transform: translateY(1px);
+}
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    box-sizing: border-box;
-    background: linear-gradient(135deg, #2d3748, #1a202c); 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    color: #f0f0f0;
-    font-family: inherit;
-    letter-spacing: inherit;
-    width: 100%;
+    background: rgba(45, 55, 72, 0.7);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
+    transition: background 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(45, 55, 72, 0.9);
 }
 
 .navbar-logo {
-    flex: 1; 
+    flex: 1;
     text-align: left;
 }
 
 .navbar-logo h1 {
     margin: 0;
     font-size: 1.8rem;
-    font-weight: 300;
-    color: #edf2f7;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar-logo h1:hover {
+    color: #4a5568;
 }
 
 .navbar-links {
-    list-style: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 2rem;
     margin: 0;
     padding: 0;
-    flex: 2; 
-    justify-content: center;
-    text-transform: uppercase;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    list-style: none;
+}
+
+.navbar-links li {
+    position: relative;
 }
 
 .navbar-links li a {
-    color: #cbd5e0;
+    color: #a0aec0;
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #e2e8f0;
+    transition: width 0.3s ease, left 0.3s ease;
 }
 
 .navbar-links li a:hover {
-    color: #ffffff;
+    color: #e2e8f0;
+}
+
+.navbar-links li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.navbar-cart {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .navbar-cart .cart-button {
     padding: 10px 20px;
-    margin-left: 200px;
-    font-size: 1rem;
-    font-weight: 300;
-    color: #ffffff;
-    background: #11385f;
-    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: rgba(226, 232, 240, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.2);
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.2s;
-    box-shadow: 0 4px 15px rgba(0, 28, 141, 0.3); 
+    transition: 
+        background 0.3s ease, 
+        transform 0.2s ease,
+        border-color 0.3s ease;
 }
 
 .navbar-cart .cart-button:hover {
-    background: #bfc0c1;
-    color: #11385f;
+    background: rgba(226, 232, 240, 0.2);
     transform: scale(1.05);
+    border-color: rgba(226, 232, 240, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    body, #root {
+        flex-direction: column;
+    }
+    
+    canvas, .app {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(45, 55, 72, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #718096;
 }
