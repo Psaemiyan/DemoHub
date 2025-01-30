@@ -3,7 +3,7 @@
 ## Overview
 This project is a React-based Netflix clone created as an exercise in front-end styling. The goal was to practice advanced CSS techniques and create an interactive, visually appealing web application inspired by Netflix's interface.
 
-![Netflix Clone Preview](/public/readme.jpeg)
+![Netflix Clone Preview](./public/readme.jpeg)
 
 ## Features
 - Profile selection screen with hover effects
