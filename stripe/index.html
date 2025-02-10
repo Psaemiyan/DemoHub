@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe - Financial infrastructure for the internet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-8">
+                    <path d="M19.5 0C8.73 0 0 8.73 0 19.5S8.73 39 19.5 39 39 30.27 39 19.5 30.27 0 19.5 0zm0 35.1c-8.6 0-15.6-7-15.6-15.6s7-15.6 15.6-15.6 15.6 7 15.6 15.6-7 15.6-15.6 15.6z" fill="#6772E5"/>
+                    <path d="M19.5 7.8c-6.5 0-11.7 5.3-11.7 11.7 0 6.5 5.3 11.7 11.7 11.7 6.5 0 11.7-5.3 11.7-11.7 0-6.5-5.2-11.7-11.7-11.7zm6.8 11.7c0 3.8-3 6.8-6.8 6.8-3.8 0-6.8-3-6.8-6.8 0-3.8 3-6.8 6.8-6.8 3.8 0 6.8 3 6.8 6.8z" fill="#6772E5"/>
+                </svg>
+                <ul class="flex space-x-6 text-sm">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Products</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Solutions</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Developers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-sm text-gray-600 hover:text-gray-900">Sign in</a>
+                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition-colors">Start now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-16 bg-gradient-to-b from-blue-50 to-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto leading-tight">
+                Financial infrastructure for the internet
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Millions of companies of all sizes use Stripe to accept payments, send payouts, and manage their business online.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
+                    Start now
+                </a>
+                <a href="#" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-50 transition-colors">
+                    Contact sales
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Global Payments</h3>
+                    <p class="text-gray-600 mb-4">Accept payments in 135+ currencies with a single integration.</p>
+                    <a href="#" class="text-blue-600 hover:underline">Learn more →</a>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Revenue Platform</h3>
+                    <p class="text-gray-600 mb-4">Grow your business with tools for every stage of the revenue cycle.</p>
+                    <a href="#" class="text-blue-600 hover:underline">Explore platform →</a>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Developer Tools</h3>
+                    <p class="text-gray-600 mb-4">Build custom solutions with powerful APIs and developer resources.</p>
+                    <a href="#" class="text-blue-600 hover:underline">View docs →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-5 gap-8">
+                <div>
+                    <h4 class="font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Payments</a></li>
+                        <li><a href="#" class="hover:text-white">Billing</a></li>
+                        <li><a href="#" class="hover:text-white">Invoicing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Developers</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white">API Reference</a></li>
+                        <li><a href="#" class="hover:text-white">Integrations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Customers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Guides</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Solutions</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">SaaS</a></li>
+                        <li><a href="#" class="hover:text-white">Platforms</a></li>
+                        <li><a href="#" class="hover:text-white">Marketplaces</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
